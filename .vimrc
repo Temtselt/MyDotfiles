@@ -72,6 +72,7 @@ filetype indent on
 syntax on
 colorscheme monokai-phoenix
 
+" Change cursor shape for normal and insert mode
 if &term =~ '^xterm'
  let &t_SI .= "\<Esc>[5 q"
  let &t_EI .= "\<Esc>[1 q"
@@ -83,6 +84,7 @@ if &term =~ '^xterm'
 " 6 -> solid vertical bar
 endif
 
+" Powerline status for vim 
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup

@@ -107,6 +107,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
+# Terminal proxy in wsl2
 export windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export ALL_PROXY=http://$windows_host:7890
 export HTTP_PROXY=$ALL_PROXY
@@ -118,14 +119,14 @@ export TERM=xterm-256color
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
+# Alias
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ~='cd ~'
-alias gs='git status'
-alias grep='grep --color=auto'
 alias cd='cd | ls'
+alias gs='git status'
 alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Use vim keys in tab complete menu:

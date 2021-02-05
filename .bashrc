@@ -76,8 +76,8 @@ esac
 if [ -x /usr/bin/dircolors ]; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
-    #alias dir='dir --color=auto'
-    #alias vdir='vdir --color=auto'
+    alias dir='dir --color=auto'
+    alias vdir='vdir --color=auto'
 
     alias grep='grep --color=auto'
     alias fgrep='fgrep --color=auto'
@@ -91,6 +91,14 @@ fi
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias mv='mv -i'
+alias rm='rm -i'
+alias cp='cp -i'
+alias ..='cd ..'
+alias ~='cd ~'
+alias cd='cd | ls'
+alias gs='git status'
+alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -126,6 +134,7 @@ fi
 
 export TERM="screen-256color"
 
+# Powerline 
 if [ -f `which powerline-daemon` ]; then
   powerline-daemon -q
   POWERLINE_BASH_CONTINUATION=1
@@ -133,11 +142,10 @@ if [ -f `which powerline-daemon` ]; then
   . /usr/share/powerline/bindings/bash/powerline.sh
 fi
 
+# Proxy settings 
 export windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
 export ALL_PROXY=http://$windows_host:7890
 export HTTP_PROXY=$ALL_PROXY
 export http_proxy=$ALL_PROXY
 export HTTPS_PROXY=$ALL_PROXY
 export https_proxy=$ALL_PROXY
-
-alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
