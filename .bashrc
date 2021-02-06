@@ -96,7 +96,6 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ~='cd ~'
-alias cd='cd | ls'
 alias gs='git status'
 alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 

@@ -58,7 +58,7 @@ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
 call plug#end()
 
 set encoding=utf-8
-set number
+set rnu
 
 set tabstop=4
 set shiftwidth=4
@@ -88,3 +88,9 @@ endif
 python3 from powerline.vim import setup as powerline_setup
 python3 powerline_setup()
 python3 del powerline_setup
+
+" Map the toggle command :NERDTreeToggle to F2 key
+map <F2> :NERDTreeToggle<CR>
+
+" Show hidden files in NERDTree
+let NERDTreeShowHidden=1

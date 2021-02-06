@@ -120,12 +120,14 @@ export TERM=xterm-256color
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
 
 # Alias
+alias ll='ls -alF'
+alias la='ls -A'
+alias l='ls -CF'
 alias mv='mv -i'
 alias rm='rm -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ~='cd ~'
-alias cd='cd | ls'
 alias gs='git status'
 alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
