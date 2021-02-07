@@ -33,8 +33,8 @@ This is my simple config files, including bash, zsh, vim, tmux config, I upload 
 `alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
 
 ### Plugins
-
 *Installed with oh-my-zsh*  
+
 `git`  
 `ash-autosuggestions`  
 `zsh-syntax-highlighting`  
@@ -45,8 +45,8 @@ This is my simple config files, including bash, zsh, vim, tmux config, I upload 
 ## Vim
 
 ### Pugins
-
 *Installed with Vim-Plug*  
+
 `reewr/vim-monokai-pheonix`  
 `preservim/nerdtree`  
 `itchyny/lightline.vim`  
