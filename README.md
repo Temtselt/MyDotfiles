@@ -55,7 +55,6 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 | `preservim/nerdcommenter'`                                   | Comment functions so powerful—no comment necessary.          |
 | `krasjet/auto.pairs`                                         | A fork of the auto-pairs plugin for vim with more sensible auto-completion rules. |
 | `python-mode/python-mode, {'for': 'python', 'branch': 'develop' }` | Python-mode is a Vim plugin that magically converts Vim into a Python IDE. |
-| `oblitum/youcompleteme`                                      | a code-completion engine for Vim                             |
 
 ### Key Bindings
 
@@ -102,7 +101,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 | `<prefix>C-h`             | Select previous window       |
 | `<prefix>C-l`             | Select next window           |
 | `<prefix>-`               | Split window vertically      |
-| `<prefix>|`               | Split window horizontally    |
+| `<prefix>S-\`             | Split window horizontally    |
 | --------------------      | --------------------         |
 | `<prefix>s`               | List sessions                |
 | `<prefix>$`               | Name session                 |
