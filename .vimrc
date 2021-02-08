@@ -54,6 +54,12 @@ Plug 'krasjet/auto.pairs'
 " Vim for python
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
  
+" You complete me
+Plug 'oblitum/youcompleteme'
+
+" NERD Commnter
+Plug 'preservim/nerdcommenter'
+
 " Initialize plugin system
 call plug#end()
 
@@ -69,6 +75,7 @@ set laststatus=2
 set t_Co=256
 
 filetype indent on
+filetype plugin on
 syntax on
 colorscheme monokai-phoenix
 
@@ -94,3 +101,6 @@ map <F2> :NERDTreeToggle<CR>
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
+
+" map leader key
+let mapleader=","

@@ -140,11 +140,3 @@ if [ -f `which powerline-daemon` ]; then
   POWERLINE_BASH_SELECT=1
   . /usr/share/powerline/bindings/bash/powerline.sh
 fi
-
-# Proxy settings 
-export windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export ALL_PROXY=http://$windows_host:7890
-export HTTP_PROXY=$ALL_PROXY
-export http_proxy=$ALL_PROXY
-export HTTPS_PROXY=$ALL_PROXY
-export https_proxy=$ALL_PROXY

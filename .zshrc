@@ -1,3 +1,7 @@
+# Have tmux load by default
+if [ "$TMUX" = "" ]; then 
+  tmux; 
+fi
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -107,13 +111,6 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Terminal proxy in wsl2
-export windows_host=`cat /etc/resolv.conf|grep nameserver|awk '{print $2}'`
-export ALL_PROXY=http://$windows_host:7890
-export HTTP_PROXY=$ALL_PROXY
-export http_proxy=$ALL_PROXY
-export HTTPS_PROXY=$ALL_PROXY
-export https_proxy=$ALL_PROXY
 export TERM=xterm-256color
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
