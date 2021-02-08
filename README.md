@@ -35,7 +35,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 
 | Plugin                    | Note                                                         |
 | ------------------------- | ------------------------------------------------------------ |
-| `git`                     | git alias                                                    |
+| `git`                     | Git alias                                                    |
 | `ash-autosuggestions`     | It suggests commands as you type based on history and completions |
 | `zsh-syntax-highlighting` | This package provides syntax highlighting for the shell zsh. |
 | `sudo`                    | This plugin toggles "sudo" before the current/previous command by pressing double ESC in emacs-mode or vi-command mode. |
