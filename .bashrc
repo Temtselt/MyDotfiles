@@ -96,8 +96,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ~='cd ~'
-alias gs='git status'
-alias g='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
+alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
@@ -123,15 +122,7 @@ if ! shopt -oq posix; then
   fi
 fi
 
-#function _update_ps1() {
-#   PS1=$(powerline-shell $?)
-#}
-
-#if [[ $TERM != linux && ! $PROMPT_COMMAND =~ _update_ps1 ]]; then
-#   PROMPT_COMMAND="_update_ps1; $PROMPT_COMMAND"
-#fi
-
-export TERM="screen-256color"
+export TERM=xterm-256color
 
 # Powerline 
 if [ -f `which powerline-daemon` ]; then

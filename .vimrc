@@ -55,7 +55,7 @@ Plug 'krasjet/auto.pairs'
 Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
  
 " You complete me
-Plug 'oblitum/youcompleteme'
+" Plug 'oblitum/youcompleteme'
 
 " NERD Commnter
 Plug 'preservim/nerdcommenter'
@@ -65,19 +65,24 @@ call plug#end()
 
 set encoding=utf-8
 set rnu
-
 set tabstop=4
 set shiftwidth=4
 set smartindent
 set autoindent
-
 set laststatus=2
 set t_Co=256
+set noshowmode
 
 filetype indent on
 filetype plugin on
 syntax on
+
 colorscheme monokai-phoenix
+
+" Set lightline theme
+let g:lightline = {
+      \ 'colorscheme': 'wombat',
+      \ }
 
 " Change cursor shape for normal and insert mode
 if &term =~ '^xterm'
@@ -91,11 +96,6 @@ if &term =~ '^xterm'
 " 6 -> solid vertical bar
 endif
 
-" Powerline status for vim 
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
-
 " Map the toggle command :NERDTreeToggle to F2 key
 map <F2> :NERDTreeToggle<CR>
 
@@ -104,3 +104,14 @@ let NERDTreeShowHidden=1
 
 " map leader key
 let mapleader=","
+
+" NERDCommenter
+" Add spaces after comment delimiters by default
+let g:NERDSpaceDelims = 1
+
+" Bind vim navigation keys to switching between NERDTree tabs
+map  <C-l> :tabn<CR>
+map  <C-h> :tabp<CR>
+
+" Create a new NERDTree tab
+map  <C-n> :tabnew<CR>
