@@ -96,6 +96,7 @@ alias rm='rm -i'
 alias cp='cp -i'
 alias ..='cd ..'
 alias ~='cd ~'
+alias cc='clear'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Add an "alert" alias for long running commands.  Use like so:
