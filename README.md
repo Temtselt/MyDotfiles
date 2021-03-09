@@ -14,7 +14,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 `alias cp='cp -i'`  
 `alias ..='cd ..'`  
 `alias ~='cd ~'`    
-`alias cc='clear'`
+`alias cc='clear'` 
 `alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
 
 ## Zsh
@@ -29,7 +29,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 `alias cp='cp -i'`  
 `alias ..='cd ..'`  
 `alias ~='cd ~'`   
-`alisa cc='clear'`
+`alisa cc='clear'` 
 `alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
 
 ### Plugins
