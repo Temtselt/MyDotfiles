@@ -14,6 +14,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 `alias cp='cp -i'`  
 `alias ..='cd ..'`  
 `alias ~='cd ~'`    
+`alias cc='clear'`
 `alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
 
 ## Zsh
@@ -28,6 +29,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 `alias cp='cp -i'`  
 `alias ..='cd ..'`  
 `alias ~='cd ~'`   
+`alisa cc='clear'`
 `alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
 
 ### Plugins
@@ -70,11 +72,11 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 | `C-l`                | Move to the next tab                                         |
 | `C-h`                | Move to the previous tab                                     |
 | `C-n`                | Create a new tab                                             |
-| `C-w -> w`           | Toggle between windows                                       |
-| `C-w -> hjkl `       | Move between windows                                         |
-| `C-w -> S-hjkl`      | Move widows                                                  |
-| -------------------- | --------------------                                         |
 | `,`                  | Leader key                                                   |
+| `<Leader>w -> w`     | Toggle between windows                                       |
+| `<Leader>w -> hjkl ` | Move between windows                                         |
+| `<Leader>w -> HJKL`  | Move widows                                                  |
+| -------------------- | --------------------                                         |
 | `<leader>cc`         | Comment out the current line or text selected in visual mode |
 | `<leader>ci`         | Toggles the comment state of the selected line(s)            |
 | `<leader>r`          | Run python code                                              |

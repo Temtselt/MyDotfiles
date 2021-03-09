@@ -97,7 +97,7 @@ if &term =~ '^xterm'
 endif
 
 " Map the toggle command :NERDTreeToggle to F2 key
-map <F2> :NERDTreeToggle<CR>
+nnoremap <F2> :NERDTreeToggle<CR>
 
 " Show hidden files in NERDTree
 let NERDTreeShowHidden=1
@@ -115,3 +115,6 @@ map  <C-h> :tabp<CR>
 
 " Create a new NERDTree tab
 map  <C-n> :tabnew<CR>
+
+" Overwrite default <C-w> to <Leader>w
+:nnoremap <Leader>w <C-w>
