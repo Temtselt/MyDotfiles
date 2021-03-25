@@ -155,3 +155,9 @@ zle-line-init() {
 zle -N zle-line-init
 echo -ne '\e[5 q' # Use beam shape cursor on startup.
 preexec() { echo -ne '\e[5 q' ;} # Use beam shape cursor for each new prompt.
+
+# Set Proxy
+export hostip=$(cat /etc/resolv.conf |grep -oP '(?<=nameserver\ ).*')
+export https_proxy="http://${hostip}:7890"
+export http_proxy="http://${hostip}:7890"
+export all_proxy="socks5://${hostip}:7890"

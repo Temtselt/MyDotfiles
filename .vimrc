@@ -33,30 +33,21 @@ call plug#begin('~/.vim/plugged')
 " Unmanaged plugin (manually installed and updated)
 " Plug '~/my-prototype-plugin'
 
-" monokai phoenic theme
-Plug 'reewr/vim-monokai-phoenix'
+" sonokai theme
+Plug 'sainnhe/sonokai'
 
 " NERDTree
 Plug 'preservim/nerdtree'
 
-" Tabnine
-" Plug 'zxqfl/tabnine-vim'
-
 " Lightline 
 Plug 'itchyny/lightline.vim'
-
-" delimitMate
-" Plug 'vim-scripts/delimitMate.vim'
 
 " auto.pairs
 Plug 'krasjet/auto.pairs'
 
 " Vim for python
-Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+ Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
  
-" You complete me
-" Plug 'oblitum/youcompleteme'
-
 " NERD Commnter
 Plug 'preservim/nerdcommenter'
 
@@ -65,6 +56,22 @@ Plug 'lervag/vimtex'
 
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+" UltiSnips
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+
+" Polyglot
+Plug 'sheerun/vim-polyglot'
+
+" Ale
+Plug 'dense-analysis/ale'
+
+" Vim-surround
+Plug 'tpope/vim-surround'
+
+" Vim-autoformat
+Plug 'Chiel92/vim-autoformat'
 
 " Initialize plugin system
 call plug#end()
@@ -83,12 +90,23 @@ filetype indent on
 filetype plugin on
 syntax on
 
-colorscheme monokai-phoenix
+
+" Colorscheme
+if has('termguicolors')
+	set termguicolors
+endif
+let g:sonokai_style = 'andromeda'
+let g:sonokai_enable_italic = 1
+let g:sonokai_disable_italic_comment = 1
+
+colorscheme sonokai
+
 
 " Set lightline theme
 let g:lightline = {
       \ 'colorscheme': 'wombat',
       \ }
+
 
 " Change cursor shape for normal and insert mode
 if &term =~ '^xterm'
@@ -102,6 +120,8 @@ if &term =~ '^xterm'
 " 6 -> solid vertical bar
 endif
 
+
+" NERDTree configuration
 " Map the toggle command :NERDTreeToggle to F2 key
 nnoremap <F2> :NERDTreeToggle<CR>
 
@@ -125,10 +145,49 @@ map  <C-n> :tabnew<CR>
 " Overwrite default <C-w> to <Leader>w
 :nnoremap <Leader>w <C-w>
 
-" LaTeX settings
+
+" LaTeX configuration
+let g:tex_flavor = 'latex'
 let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options = '-reuse-instance @pdf'
+let g:vimtex_view_general_options = '-reuse-instance -foward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
+let g:vimtex_compiler_latexmk_engines = {
+    \ '_'                : '-pdf',
+    \ 'pdflatex'         : '-pdf',
+    \ 'dvipdfex'         : '-pdfdvi',
+    \ 'lualatex'         : '-lualatex',
+    \ 'xelatex'          : '-xelatex',
+    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+    \ 'context (luatex)' : '-pdf -pdflatex=context',
+    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+    \}
+let g:vimtex_compiler_latexmk = {
+    \ 'build_dir' : '',
+    \ 'callback' : 1,
+    \ 'continuous' : 1,
+    \ 'executable' : 'latexmk',
+    \ 'hooks' : [],
+    \ 'options' : [
+    \   '-verbose',
+    \   '-file-line-error',
+    \   '-shell-escape',
+    \   '-synctex=1',
+    \   '-interaction=nonstopmode',
+    \ ],
+    \}
+let g:vimtex_toc_config = {
+	\ 'name' : 'TOC',
+	\ 'layers' : ['content', 'todo', 'include'],
+	\ 'split_width' : 25,
+	\ 'todo_sorted' : 0,
+    \ 'show_help' : 1,
+	\ 'show_numbers' : 1,
+	\}
+let g:vimtex_quickfix_mode = 0
+
+" Map the toggle command : VimtecTocToggle to F3 key
+nnoremap <F3> :VimtexTocToggle<CR>
+
 
 " coc-nvim configuration
 " TextEdit might fail if hidden is not set.
@@ -292,3 +351,21 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+
+
+" Vim-surround configuration
+augroup latexSurround
+autocmd!
+autocmd FileType tex call s:latexSurround()
+augroup END
+
+function! s:latexSurround()
+let b:surround_{char2nr("e")}
+\ = "\\begin{\1environment: \1}\n\t\r\n\\end{\1\1}"
+let b:surround_{char2nr("c")} = "\\\1command: \1{\r}"
+endfunction
+
+
+" Autoformat
+" Map the format command : Autoformat to F4 key
+nnoremap <F4> :Autoformat<CR>

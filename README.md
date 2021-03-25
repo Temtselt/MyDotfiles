@@ -1,39 +1,40 @@
-# My dotfiles 
+# My dotfiles
 
-These are my simple config files, including bash, zsh, vim, tmux config files. I upload them here so that I can sync between multiple devices.  
+These are my simple config files, including bash, zsh, vim, tmux config files. I upload them here so that I can sync between multiple devices.
 
 ## Bash
 
 ### Alias
 
-`alias ll='ls -alF'`  
-`alias la='ls -A'`  
-`alias l='ls -CF'`  
-`alias mv='mv -i'`  
-`alias rm='rm -i'`  
-`alias cp='cp -i'`  
-`alias ..='cd ..'`  
-`alias ~='cd ~'`    
-`alias cc='clear'` 
-`alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
+`alias ll='ls -alF'`\
+`alias la='ls -A'`\
+`alias l='ls -CF'`\
+`alias mv='mv -i'`\
+`alias rm='rm -i'`\
+`alias cp='cp -i'`\
+`alias ..='cd ..'`\
+`alias ~='cd ~'`\
+`alias cc='clear'`
+`alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`
 
 ## Zsh
 
 ### Alias
 
-`alias ll='ls -alF'`  
-`alias la='ls -A'`  
-`alias l='ls -CF'`  
-`alias mv='mv -i'`  
-`alias rm='rm -i'`  
-`alias cp='cp -i'`  
-`alias ..='cd ..'`  
-`alias ~='cd ~'`   
-`alisa cc='clear'` 
-`alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`  
+`alias ll='ls -alF'`\
+`alias la='ls -A'`\
+`alias l='ls -CF'`\
+`alias mv='mv -i'`\
+`alias rm='rm -i'`\
+`alias cp='cp -i'`\
+`alias ..='cd ..'`\
+`alias ~='cd ~'`\
+`alisa cc='clear'`
+`alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'`
 
 ### Plugins
-*Installed with oh-my-zsh*  
+
+*Installed with oh-my-zsh*
 
 | Plugin                    | Note                                                         |
 | ------------------------- | ------------------------------------------------------------ |
@@ -47,18 +48,28 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 ## Vim
 
 ### Plugins
-*Installed with Vim-Plug*  
+
+*Installed with Vim-Plug*
 
 | Plugin                                                       | Note                                                         |
 | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `reewr/vim-monokai-pheonix`                                  | A different monokai phoenix theme for Vim.                   |
+| `sainnhe/sonokai`                                            | This color scheme is based on Monokai Pro.                   |
 | `itchyny/lightline.vim`                                      | A light and configurable statusline/tabline plugin for Vim   |
 | `preservim/nerdtree`                                         | The NERDTree is a file system explorer for the Vim editor.   |
 | `preservim/nerdcommenter'`                                   | Comment functions so powerful—no comment necessary.          |
 | `krasjet/auto.pairs`                                         | A fork of the auto-pairs plugin for vim with more sensible auto-completion rules. |
 | `python-mode/python-mode, {'for': 'python', 'branch': 'develop' }` | Python-mode is a Vim plugin that magically converts Vim into a Python IDE. |
+| `lervag/vimtex`                                              | VimTeX is a modern [Vim](http://www.vim.org/) and [Neovim](https://neovim.io/) filetype and syntax plugin for LaTeX files. |
+| `neolide/coc.nvim, {'branch': 'release'}`                    | Make your Vim/Neovim as smart as VSCode.                     |
+| `SirVer/ultisnips`<br />`honza/vim-snippets`                 | UltiSnips is the ultimate solution for snippets in Vim. It has many features, speed being one of them. |
+| `sheerun/vim-polyglot`                                       | A collection of language packs for Vim.                      |
+| `dense-analysis/ale`                                         | ALE (Asynchronous Lint Engine) is a plugin providing linting |
+| `tpope/vim-surround`                                         | Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more |
+| `Chile92/vim-autoformat`                                     | Format code with one button press (or automatically on save). |
 
 ### Key Bindings
+
+#### NERDTree
 
 | Key Binding          | Note                                                         |
 | -------------------- | ------------------------------------------------------------ |
@@ -72,15 +83,41 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 | `C-l`                | Move to the next tab                                         |
 | `C-h`                | Move to the previous tab                                     |
 | `C-n`                | Create a new tab                                             |
-| `,`                  | Leader key                                                   |
 | `<Leader>w -> w`     | Toggle between windows                                       |
-| `<Leader>w -> hjkl ` | Move between windows                                         |
+| ` <Leader>w -> hjkl  ` | Move between windows                                         |
 | `<Leader>w -> HJKL`  | Move widows                                                  |
-| -------------------- | --------------------                                         |
-| `<leader>cc`         | Comment out the current line or text selected in visual mode |
-| `<leader>ci`         | Toggles the comment state of the selected line(s)            |
-| `<leader>r`          | Run python code                                              |
-| `<leader>K`          | Search in python documentation                               |
+
+#### NERD Commenter
+
+| Key Binding  | Note                                                         |
+| ------------ | ------------------------------------------------------------ |
+| `<leader>cc` | Comment out the current line or text selected in visual mode. |
+| `<leader>ci` | Toggles the comment state of the selected line(s).           |
+| `<leader>r`  | Run python code.                                             |
+| `<leader>K`  | Search in python documentation.                              |
+
+#### VimTex
+
+| Key Binding    | Note                                      |
+| -------------- | ----------------------------------------- |
+| `F3`           | Toggle VimTex table of contents.          |
+| `<leader>\ll`  | Start (or stop) compiling the document.   |
+| `<leader>\lv`  | Open pdf viewer and/or do forward search. |
+| `<leader>\lc`  | Clean auxiliary files.                    |
+| `<leader>ysse` | Create surrounding environment.           |
+| `<leader>yssc` | Create surrounding command.               |
+| `<leader>dse`  | Delete surrounding environment.           |
+| `<leader>dsc`  | Delete surrounding command.               |
+| `<leader>dsd`  | Delete surrounding delimiter.             |
+| `<leader>cse`  | Change surrounding environment.           |
+| `<leader>csc`  | Change surrounding command.               |
+| `<leader>csd`  | Change surrounding delimiter.             |
+
+#### Autoformat
+
+| Key Binding | Note       |
+| ----------- | ---------- |
+| `F4`        | Autoformat |
 
 ## Tmux
 
