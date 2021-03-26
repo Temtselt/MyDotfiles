@@ -66,6 +66,7 @@ These are my simple config files, including bash, zsh, vim, tmux config files. I
 | `dense-analysis/ale`                                         | ALE (Asynchronous Lint Engine) is a plugin providing linting |
 | `tpope/vim-surround`                                         | Surround.vim is all about "surroundings": parentheses, brackets, quotes, XML tags, and more |
 | `Chile92/vim-autoformat`                                     | Format code with one button press (or automatically on save). |
+| `bagrat/vim-buffet`                                          | Brings you the IDE-like tabs into Vim, for easy navigation, and a nice, customizable look. |
 
 ### Key Bindings
 
