@@ -126,6 +126,9 @@ alias cp='cp -i'
 alias ..='cd ..'
 alias ~='cd ~'
 alias cc='clear'
+alias home='/mnt/c/Users/Temchlt'
+alias d='/mnt/d'
+alias e='/mnt/e'
 alias dotfiles='/usr/bin/git --git-dir=$HOME/dotfiles/ --work-tree=$HOME'
 
 # Use vim keys in tab complete menu:

@@ -39,15 +39,15 @@ Plug 'sainnhe/sonokai'
 " NERDTree
 Plug 'preservim/nerdtree'
 
-" Lightline 
+" Lightline
 Plug 'itchyny/lightline.vim'
 
 " auto.pairs
 Plug 'krasjet/auto.pairs'
 
 " Vim for python
- Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
- 
+Plug 'python-mode/python-mode', { 'for': 'python', 'branch': 'develop' }
+
 " NERD Commnter
 Plug 'preservim/nerdcommenter'
 
@@ -57,9 +57,8 @@ Plug 'lervag/vimtex'
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
-" UltiSnips
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
+" vim-snippets
+Plug 'honza/vim-snippets'
 
 " Polyglot
 Plug 'sheerun/vim-polyglot'
@@ -76,11 +75,17 @@ Plug 'Chiel92/vim-autoformat'
 " IDE-like Vim tabline
 Plug 'bagrat/vim-buffet'
 
+" Command-t
+Plug 'wincent/command-t', {
+			\   'do': 'cd ruby/command-t/ext/command-t && ruby extconf.rb && make'
+			\ }
+
 " Initialize plugin system
 call plug#end()
 
 set encoding=utf-8
 set rnu
+set number
 set tabstop=4
 set shiftwidth=4
 set smartindent
@@ -88,10 +93,11 @@ set autoindent
 set laststatus=2
 set t_Co=256
 set noshowmode
+set pastetoggle=<F5>
+set mouse=n
 
 filetype indent on
 filetype plugin on
-syntax on
 
 
 " Colorscheme
@@ -107,20 +113,20 @@ colorscheme sonokai
 
 " Set lightline theme
 let g:lightline = {
-      \ 'colorscheme': 'wombat',
-      \ }
+			\ 'colorscheme': 'wombat',
+			\ }
 
 
 " Change cursor shape for normal and insert mode
 if &term =~ '^xterm'
- let &t_SI .= "\<Esc>[5 q"
- let &t_EI .= "\<Esc>[1 q"
-" 0 or 1 -> blinking block
-" 2 -> solid block
-" 3 -> blinking underscore
-" 4 -> solid underscore
-" 5 -> blinking vertical bar
-" 6 -> solid vertical bar
+	let &t_SI .= "\<Esc>[5 q"
+	let &t_EI .= "\<Esc>[1 q"
+	" 0 or 1 -> blinking block
+	" 2 -> solid block
+	" 3 -> blinking underscore
+	" 4 -> solid underscore
+	" 5 -> blinking vertical bar
+	" 6 -> solid vertical bar
 endif
 
 
@@ -151,45 +157,48 @@ map  <C-n> :tabnew<CR>
 
 " LaTeX configuration
 let g:tex_flavor = 'latex'
-let g:vimtex_view_general_viewer = 'SumatraPDF'
-let g:vimtex_view_general_options = '-reuse-instance -foward-search @tex @line @pdf'
+let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
+" let g:vimtex_view_general_options = '-reuse-instance -foward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 let g:vimtex_compiler_latexmk_engines = {
-    \ '_'                : '-pdf',
-    \ 'pdflatex'         : '-pdf',
-    \ 'dvipdfex'         : '-pdfdvi',
-    \ 'lualatex'         : '-lualatex',
-    \ 'xelatex'          : '-xelatex',
-    \ 'context (pdftex)' : '-pdf -pdflatex=texexec',
-    \ 'context (luatex)' : '-pdf -pdflatex=context',
-    \ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
-    \}
+			\ '_'                : '-pdf',
+			\ 'pdflatex'         : '-pdf',
+			\ 'dvipdfex'         : '-pdfdvi',
+			\ 'lualatex'         : '-lualatex',
+			\ 'xelatex'          : '-xelatex',
+			\ 'context (pdftex)' : '-pdf -pdflatex=texexec',
+			\ 'context (luatex)' : '-pdf -pdflatex=context',
+			\ 'context (xetex)'  : '-pdf -pdflatex=''texexec --xtx''',
+			\}
 let g:vimtex_compiler_latexmk = {
-    \ 'build_dir' : '',
-    \ 'callback' : 1,
-    \ 'continuous' : 1,
-    \ 'executable' : 'latexmk',
-    \ 'hooks' : [],
-    \ 'options' : [
-    \   '-verbose',
-    \   '-file-line-error',
-    \   '-shell-escape',
-    \   '-synctex=1',
-    \   '-interaction=nonstopmode',
-    \ ],
-    \}
+			\ 'build_dir' : '',
+			\ 'callback' : 1,
+			\ 'continuous' : 1,
+			\ 'executable' : 'latexmk',
+			\ 'hooks' : [],
+			\ 'options' : [
+			\   '-verbose',
+			\   '-file-line-error',
+			\   '-shell-escape',
+			\   '-synctex=1',
+			\   '-interaction=nonstopmode',
+			\ ],
+			\}
 let g:vimtex_toc_config = {
-	\ 'name' : 'TOC',
-	\ 'layers' : ['content', 'todo', 'include'],
-	\ 'split_width' : 25,
-	\ 'todo_sorted' : 0,
-    \ 'show_help' : 1,
-	\ 'show_numbers' : 1,
-	\}
-let g:vimtex_quickfix_mode = 0
+			\ 'name' : 'TOC',
+			\ 'layers' : ['content', 'todo', 'include'],
+			\ 'split_width' : 25,
+			\ 'todo_sorted' : 0,
+			\ 'show_help' : 1,
+			\ 'show_numbers' : 1,
+			\}
+let g:Tex_GotoError = 0
 
 " Map the toggle command : VimtecTocToggle to F3 key
 nnoremap <F3> :VimtexTocToggle<CR>
+
+" Map the close QuickFix command to F6 key
+nnoremap <F4> :cclose<CR>
 
 
 " coc-nvim configuration
@@ -213,37 +222,37 @@ set shortmess+=c
 " Always show the signcolumn, otherwise it would shift the text each time
 " diagnostics appear/become resolved.
 if has("patch-8.1.1564")
-  " Recently vim can merge signcolumn and number column into one
-  set signcolumn=number
+	" Recently vim can merge signcolumn and number column into one
+	set signcolumn=number
 else
-  set signcolumn=yes
+	set signcolumn=yes
 endif
 
 " Use tab for trigger completion with characters ahead and navigate.
 " NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
 " other plugin before putting this into your config.
 inoremap <silent><expr> <TAB>
-      \ pumvisible() ? "\<C-n>" :
-      \ <SID>check_back_space() ? "\<TAB>" :
-      \ coc#refresh()
+			\ pumvisible() ? "\<C-n>" :
+			\ <SID>check_back_space() ? "\<TAB>" :
+			\ coc#refresh()
 inoremap <expr><S-TAB> pumvisible() ? "\<C-p>" : "\<C-h>"
 
 function! s:check_back_space() abort
-  let col = col('.') - 1
-  return !col || getline('.')[col - 1]  =~# '\s'
+	let col = col('.') - 1
+	return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-space> coc#refresh()
+	inoremap <silent><expr> <c-space> coc#refresh()
 else
-  inoremap <silent><expr> <c-@> coc#refresh()
+	inoremap <silent><expr> <c-@> coc#refresh()
 endif
 
 " Make <CR> auto-select the first completion item and notify coc.nvim to
 " format on enter, <cr> could be remapped by other vim plugin
 inoremap <silent><expr> <cr> pumvisible() ? coc#_select_confirm()
-                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
+			\: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
 " Use `[g` and `]g` to navigate diagnostics
 " Use `:CocDiagnostics` to get all diagnostics of current buffer in location list.
@@ -260,13 +269,13 @@ nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
-  if (index(['vim','help'], &filetype) >= 0)
-    execute 'h '.expand('<cword>')
-  elseif (coc#rpc#ready())
-    call CocActionAsync('doHover')
-  else
-    execute '!' . &keywordprg . " " . expand('<cword>')
-  endif
+	if (index(['vim','help'], &filetype) >= 0)
+		execute 'h '.expand('<cword>')
+	elseif (coc#rpc#ready())
+		call CocActionAsync('doHover')
+	else
+		execute '!' . &keywordprg . " " . expand('<cword>')
+	endif
 endfunction
 
 " Highlight the symbol and its references when holding the cursor.
@@ -280,11 +289,11 @@ xmap <leader>f  <Plug>(coc-format-selected)
 nmap <leader>f  <Plug>(coc-format-selected)
 
 augroup mygroup
-  autocmd!
-  " Setup formatexpr specified filetype(s).
-  autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
-  " Update signature help on jump placeholder.
-  autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
+	autocmd!
+	" Setup formatexpr specified filetype(s).
+	autocmd FileType typescript,json setl formatexpr=CocAction('formatSelected')
+	" Update signature help on jump placeholder.
+	autocmd User CocJumpPlaceholder call CocActionAsync('showSignatureHelp')
 augroup end
 
 " Applying codeAction to the selected region.
@@ -310,12 +319,12 @@ omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
-  nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
-  inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
-  inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
-  vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
-  vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	nnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	nnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
+	inoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(1)\<cr>" : "\<Right>"
+	inoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? "\<c-r>=coc#float#scroll(0)\<cr>" : "\<Left>"
+	vnoremap <silent><nowait><expr> <C-f> coc#float#has_scroll() ? coc#float#scroll(1) : "\<C-f>"
+	vnoremap <silent><nowait><expr> <C-b> coc#float#has_scroll() ? coc#float#scroll(0) : "\<C-b>"
 endif
 
 " Use CTRL-S for selections ranges.
@@ -358,20 +367,20 @@ nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
 
 " Vim-surround configuration
 augroup latexSurround
-autocmd!
-autocmd FileType tex call s:latexSurround()
+	autocmd!
+	autocmd FileType tex call s:latexSurround()
 augroup END
 
 function! s:latexSurround()
-let b:surround_{char2nr("e")}
-\ = "\\begin{\1environment: \1}\n\t\r\n\\end{\1\1}"
-let b:surround_{char2nr("c")} = "\\\1command: \1{\r}"
+	let b:surround_{char2nr("e")}
+				\ = "\\begin{\1environment: \1}\n\t\r\n\\end{\1\1}"
+	let b:surround_{char2nr("c")} = "\\\1command: \1{\r}"
 endfunction
 
 
 " Autoformat
 " Map the format command : Autoformat to F4 key
-nnoremap <F4> :Autoformat<CR>
+nnoremap <F6> :Autoformat<CR>
 
 
 " Vim-buffet configuration
