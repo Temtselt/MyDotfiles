@@ -158,7 +158,6 @@ map  <C-n> :tabnew<CR>
 " LaTeX configuration
 let g:tex_flavor = 'latex'
 let g:vimtex_view_general_viewer = 'SumatraPDF.exe'
-" let g:vimtex_view_general_options = '-reuse-instance -foward-search @tex @line @pdf'
 let g:vimtex_view_general_options_latexmk = '-reuse-instance'
 let g:vimtex_compiler_latexmk_engines = {
 			\ '_'                : '-pdf',
@@ -193,12 +192,13 @@ let g:vimtex_toc_config = {
 			\ 'show_numbers' : 1,
 			\}
 let g:Tex_GotoError = 0
+let g:vimtex_quickfix_enabled = 0
 
 " Map the toggle command : VimtecTocToggle to F3 key
 nnoremap <F3> :VimtexTocToggle<CR>
 
 " Map the close QuickFix command to F6 key
-nnoremap <F4> :cclose<CR>
+nnoremap <F4> :copen<CR>
 
 
 " coc-nvim configuration
